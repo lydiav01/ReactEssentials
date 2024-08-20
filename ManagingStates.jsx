@@ -1,19 +1,18 @@
-function App() {
+import React from "react";
+
+export default function App() {
+  const [price, SetNewDiscount] = React.useState(100);
+  function handleDiscountedChange(newPrice) {
+    console.log(price);
+    SetNewDiscount(newPrice);
+  }
   return (
     <div>
-      <header>
-        <img src="src/assets/react-core-concepts.png" alt="Stylized atom" />
-        <h1>React Essentials</h1>
-        <p>
-          Fundamental React concepts you will need for almost any app you are
-          going to build!
-        </p>
-      </header>
-      <main>
-        <h2>Time to get started!</h2>
-      </main>
+      <p data-testid="price">${price}</p>
+      <button onClick={() => handleDiscountedChange(75)}>
+        Apply Discount
+      </button>{" "}
+      {SetNewDiscount}
     </div>
   );
 }
-
-export default App;
